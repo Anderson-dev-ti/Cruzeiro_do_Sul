@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxo de Processos</title>
+    <style>
+
+        body {
+            background-color: gray;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0px auto;
+            padding: 20px;
+            background-color: white;
+        }
+        table, tr, td ,th {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+            border-color: white;
+        }
+
+        td {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Fluxo de Processos</h1>
+        <h2>São criados os processos A, B e C, nesta ordem. </h2>
+        <p>Para cada evento descrito, mostre quais são os processos que estarão prontos, executando ou bloqueados.</p>
+        <h2>Lembre-se que: </h2>
+        
+          <ul>
+        <li>Apenas um processo pode estar no estado “Executando”.</li>
+        <li>Se um processo liberar a CPU, outro deve ocupá-la imediatamente.</li>
+        <li>Assuma a ordem de chegada para definir quem ocupa a CPU.</li>
+          </ul>
+        <h2>Fluxo dos processos:</h2>
+        <ol>
+            <li>Os processos são criados.</li>
+            <li>A CPU está livre.</li>
+            <li>Processo necessita de I/O.</li>
+            <li>I/O atendido.</li>
+            <li>Processo necessita de uma digitação.</li>
+            <li>Processo necessita de I/O.</li>
+            <li>Digitação concluída.</li>
+            <li>Processo termina.</li>
+            <li>I/O concluído.</li>
+            <li>Processo termina.</li>
+        </ol>
+        <p>Monte uma tabela com colunas (Evento Nr., PRONTOS, EXECUTANDO, BLOQUEADOS) contendo os estados possíveis e para cada linha descreva um evento.</p>
+        <table>
+            <tr>
+                <th>Linhas</th>
+                <th>Prontos</th>
+                <th>Executando</th>
+                <th>Bloqueados</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>A, B, C</td>
+                <td> <hr> </td>
+                <td> <hr> </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>B, C</td>
+                <td>A</td>
+                <td> <hr> </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>C</td>
+                <td>B</td>
+                <td>A (I/O)</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>C, A</td>
+                <td>B</td>
+                <td> <hr> </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>A</td>
+                <td>C</td>
+                <td>B (digitação)</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td><hr></td>
+                <td>A</td>
+                <td>B (digitação), C (I/O)</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>B</td>
+                <td>A</td>
+                <td>C (I/O)</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td><hr></td>
+                <td>B</td>
+                <td>C (I/O)</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>C</td>
+                <td>B</td>
+                <td><hr></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td><hr></td>
+                <td>C</td>
+                <td><hr></td>
+            </tr>
+        </table>
+
+        <h2>Descrição das linhas</h2>
+        <ol>
+            <li>Os processos criados foram colocados em <strong>Prontos</strong>. Cada um com seu próprio <strong>PID.</strong></li>
+            <li>O processo <strong>A</strong> vai para <strong>Executando</strong>, pois a CPU estava livre.</li>
+            <li>O processo <strong>A</strong> vai para Bloquados pois <strong>necessicita de I/O</strong> e imediatamente é o processo <strong>B</strong> vai para <strong>Executando</strong>.</li>
+            <li>O processo <strong>A</strong> vai para <strong>Prontos</strong>, pois o I/O foi atendido.</li>
+            <li>O Processo <strong>B</strong> foi para <strong>Bloqueados</strong> pois, Processo necessita de uma digitação. O processo <strong>C</strong> foi imediatamente para <strong>Executando</strong>, pois a CPU estava livre.</li>
+            <li>O Processo <strong>C</strong> também foi para <strong>Bloqueados</strong> pois, Processo necessita de I/O. O processo <strong>A</strong> foi imediatamente para <strong>Executando</strong>, pois a CPU estava livre.</li>
+            <li>O processo <strong>B</strong> foi para <strong>Prontos</strong>, pois a Digitação foi concluída.</li>
+            <li>Finalização do processo <strong>A</strong>, pois o Processo termina. O processo <strong>B</strong> foi imediatamente para <strong>Executando</strong></li>
+            <li>O processo <strong>C</strong> vai para <strong>Prontos</strong> pois, I/O concluído.</li>
+            <li>Finalização do processo <strong>B</strong>, pois o Processo termina. O processo <strong>C</strong> foi imediatamente para <strong>Executando</strong></li>
+        </ol>
+    </main>
+</body>
+</html>
